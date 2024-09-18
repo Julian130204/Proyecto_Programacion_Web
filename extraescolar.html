@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Extraescolares</title>
+    <style>
+        /* Estilos generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Estilos del encabezado */
+        header {
+            background-color: #5ab507;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        /* Imagen en la esquina superior derecha */
+        .logo-header {
+            width: 50px;
+            height: auto;
+        }
+
+        /* Icono del menú hamburguesa */
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Barra lateral oculta por defecto */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #5ab507;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #66c00b;
+        }
+
+        /* Botón de cerrar barra lateral */
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            cursor: pointer;
+        }
+
+        /* Contenido principal */
+        .welcome-message {
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Estilos de la tabla */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #5ab507;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #5ab507;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: gray;
+        }
+
+        /* Adaptabilidad */
+        @media (max-width: 600px) {
+            .logo-header {
+                width: 40px;
+            }
+
+            .menu-icon {
+                font-size: 25px;
+            }
+
+            .sidebar a {
+                font-size: 16px;
+            }
+
+            table {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        function unirse(id) {
+            // Deshabilitar todos los botones
+            let botones = document.querySelectorAll('button');
+            botones.forEach(boton => {
+                boton.disabled = true;
+            });
+
+            // Mostrar mensaje de éxito
+            let mensaje = document.createElement('div');
+            mensaje.innerText = "¡Te uniste exitosamente a " + id + "!";
+            mensaje.style.textAlign = "center";
+            mensaje.style.color = "green";
+            mensaje.style.fontSize = "20px";
+            mensaje.style.marginTop = "20px";
+
+            document.body.appendChild(mensaje);
+        }
+
+        // Función para abrir la barra lateral
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        // Función para cerrar la barra lateral
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Encabezado con menú hamburguesa y logo -->
+    <header>
+        <!-- Menú hamburguesa -->
+        <span class="menu-icon" onclick="openSidebar()">&#9776;</span>
+
+        <!-- Logo superior derecho -->
+        <img src="https://uptrepregionponiente.edu.mx/img/logo.png" alt="Logo UPTrep" class="logo-header">
+    </header>
+
+    <!-- Barra lateral oculta -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="#">inicio</a>
+        <a href="#">Solicitud de Constancia</a>
+        <a href="#">Calendario</a>
+        <a href="#">Información Extra</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="welcome-message">
+        ¡Bienvenido a las extraescolares de la UPTrep!
+    </div>
+
+    <!-- Tabla de extraescolares -->
+    <table>
+        <thead>
+            <tr>
+                <th>Extraescolar</th>
+                <th>Descripción</th>
+                <th>Unirse</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Fútbol</td>
+                <td>Participa en el equipo de fútbol y representa a la universidad en torneos.</td>
+                <td><button onclick="unirse('Fútbol')">Unirse</button></td>
+            </tr>
+            <tr>
+                <td>Básquetbol</td>
+                <td>Únete al equipo de básquetbol y compite en juegos locales e interuniversitarios.</td>
+                <td><button onclick="unirse('Básquetbol')">Unirse</button></td>
+            </tr>
+            <tr>
+                <td>Tiro con Arco</td>
+                <td>Desarrolla precisión y concentración en el grupo de tiro con arco.</td>
+                <td><button onclick="unirse('Tiro con Arco')">Unirse</button></td>
+            </tr>
+            <tr>
+                <td>Baile</td>
+                <td>Aprende diferentes estilos de baile y participa en presentaciones.</td>
+                <td><button onclick="unirse('Baile')">Unirse</button></td>
+            </tr>
+            <tr>
+                <td>atletismo</td>
+                <td>Desarrolla tu habilidad fisica corriendo y mejorando tu condicion fisica.</td>
+                <td><button onclick="unirse('atletismo')">Unirse</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
