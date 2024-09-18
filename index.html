@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <style>
+        /* Estilos generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #5ab507;
+            color: #ffffff;
+        }
+
+        /* Contenedor principal */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Logo superior */
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Tarjeta de inicio de sesión */
+        .login-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #333333;
+        }
+
+        /* Imagen de usuario */
+        .user-icon {
+            background-image: url('https://www.w3schools.com/howto/img_avatar.png');
+            background-size: cover;
+            background-position: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+        }
+
+        /* Contenedor del formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Inputs de texto */
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 2px solid #89d631;
+            border-radius: 5px;
+            background-color: #f3f3f3;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #72cb10;
+        }
+
+        /* Botón de inicio de sesión */
+        .login-btn {
+            background-color: #66c00b;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background-color: #5ab507;
+        }
+
+        /* Adaptabilidad */
+        @media (max-width: 600px) {
+            .login-card {
+                padding: 15px;
+            }
+            input[type="text"], input[type="password"] {
+                width: 90%;
+                padding: 6px;
+                font-size: 12px;
+            }
+            .login-btn {
+                padding: 8px;
+                font-size: 14px;
+                width: 90%;
+            }
+        }
+    </style>
+
+    <script>
+        // Validar matrícula y contraseña
+        function validarFormulario(event) {
+            event.preventDefault();
+
+            const matricula = document.getElementById('matricula').value;
+            const password = document.getElementById('password').value;
+
+            // Verificar que la matrícula tenga 7 caracteres y que la contraseña tenga al menos 6 caracteres
+            if (matricula.length === 7 && password.length >= 6) {
+                window.location.href = 'vista-principal.html'; // Redirigir a la vista principal
+            } else {
+                alert('Matrícula o contraseña inválidas. Asegúrate de que la matrícula tenga 7 caracteres y la contraseña al menos 6.');
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo superior -->
+        <img src="https://uptrepregionponiente.edu.mx/img/logo.png" alt="Logo" class="logo">
+        
+        <div class="login-card">
+            <div class="user-icon"></div>
+            <h2>Iniciar Sesión</h2>
+            <form onsubmit="validarFormulario(event)">
+                <input type="text" id="matricula" placeholder="Matrícula (Ej: 22SIC001)" maxlength="7" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit" class="login-btn">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

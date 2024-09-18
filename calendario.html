@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Cuatrimestral</title>
+    <style>
+        /* Estilos generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Encabezado */
+        .header {
+            background-color: #5ab507;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .header img {
+            height: 50px;
+            width: auto;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Menú desplegable */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #5ab507;
+            padding-top: 60px;
+            z-index: 1;
+        }
+
+        .menu a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            background-color: #72cb10;
+        }
+
+        .menu-close {
+            display: none;
+        }
+
+        /* Contenedor del contenido */
+        .content {
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #5ab507;
+        }
+
+        /* Contenedor del calendario */
+        .calendar-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        /* Estilos para cada cuatrimestre */
+        .cuatrimestre {
+            background-color: white;
+            border: 2px solid #5ab507;
+            border-radius: 8px;
+            width: 30%;
+            margin: 10px;
+            padding: 15px;
+        }
+
+        .cuatrimestre h2 {
+            text-align: center;
+            color: #5ab507;
+        }
+
+        /* Estilos del calendario */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #66c00b;
+            color: white;
+        }
+
+        td.green {
+            background-color: #5ab507; /* Fechas de extraescolares */
+            color: white;
+        }
+
+        td.red {
+            background-color: #ff4d4d; /* Fechas pasadas */
+            color: white;
+        }
+
+        td.normal {
+            background-color: #f9f9f9; /* Fechas normales */
+        }
+
+        /* Adaptabilidad */
+        @media (max-width: 768px) {
+            .cuatrimestre {
+                width: 100%;
+            }
+
+            .menu {
+                width: 100%;
+            }
+
+            .menu a {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <div class="header">
+        <!-- Icono del menú -->
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+
+        <!-- Título del encabezado -->
+        <h2>Sistema de la UPTrep - Calendario</h2>
+
+        <!-- Logo en la esquina superior derecha -->
+        <img src="https://uptrepregionponiente.edu.mx/img/logo.png" alt="Logo UPTrep">
+    </div>
+
+    <!-- Menú desplegable -->
+    <div class="menu" id="menu">
+        <a href="javascript:void(0)" class="menu-close" onclick="toggleMenu()">Cerrar &times;</a>
+        <a href="#">Extraescolar</a>
+        <a href="#">Solicitud de Constancia</a>
+        <a href="#">Calendario</a>
+        <a href="#">Información Extra</a>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="content">
+        <h1>Calendario de Extraescolares UPTrep</h1>
+
+        <!-- Contenedor de cuatrimestres -->
+        <div class="calendar-container">
+
+            <!-- Primer Cuatrimestre -->
+            <div class="cuatrimestre">
+                <h2>1er Cuatrimestre: Septiembre - Diciembre 2024</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Septiembre 2024 -->
+                        <tr>
+                            <td class="red">2</td> <!-- Lunes, inicia extraescolar -->
+                            <td class="red">3</td>
+                            <td class="red">4</td>
+                            <td class="normal">5</td>
+                            <td class="normal">6</td>
+                        </tr>
+                        <tr>
+                            <td class="red">9</td>
+                            <td class="red">10</td>
+                            <td class="red">11</td>
+                            <td class="normal">12</td>
+                            <td class="normal">13</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">16</td>
+                            <td class="red">17</td>
+                            <td class="green">18</td>
+                            <td class="normal">19</td>
+                            <td class="normal">20</td>
+                        </tr>
+                        <tr>
+                            <td class="green">23</td>
+                            <td class="green">24</td>
+                            <td class="green">25</td>
+                            <td class="normal">26</td>
+                            <td class="normal">27</td>
+                        </tr>
+                        <tr>
+                            <td class="green">30</td>
+                            <td class="normal">1</td>
+                            <td class="normal">2</td>
+                            <td class="normal">3</td>
+                            <td class="normal">4</td>
+                        </tr>
+                        <!-- Más filas para los siguientes meses -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Segundo Cuatrimestre -->
+            <div class="cuatrimestre">
+                <h2>2do Cuatrimestre: Enero - Abril 2025</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Enero 2025 -->
+                        <tr>
+                            <td class="normal">6</td>
+                            <td class="normal">7</td>
+                            <td class="normal">8</td>
+                            <td class="normal">9</td>
+                            <td class="normal">10</td>
+                        </tr>
+                        <!-- Más filas para los siguientes meses -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tercer Cuatrimestre -->
+            <div class="cuatrimestre">
+                <h2>3er Cuatrimestre: Mayo - Agosto 2025</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Mayo 2025 -->
+                        <tr>
+                            <td class="normal">5</td>
+                            <td class="normal">6</td>
+                            <td class="normal">7</td>
+                            <td class="normal">8</td>
+                            <td class="normal">9</td>
+                        </tr>
+                        <!-- Más filas para los siguientes meses -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
