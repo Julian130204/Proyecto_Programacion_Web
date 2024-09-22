@@ -15,7 +15,7 @@ Soporte
 Lenguaje libre 
 
 
-Consultar al Beto que necesita para el sistema.
+Consultar al profesor Beto que necesita para el sistema.
 
 Cronograma
 
