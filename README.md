@@ -21,6 +21,8 @@ Cronograma
 
 Diseño libre
 
+Realizar en algo que no sea HTML  >:(
+
 1ra entrega: 23 - 26 septiembre
 2da entrega: 15 - 17 octubre
 3ra entrega: 13 - 15 noviembre 
