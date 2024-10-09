@@ -21,8 +21,6 @@ Cronograma
 
 Diseño libre
 
-Realizar en algo que no sea HTML  >:(
-
 Usar JAXP
 
 Requsitos funcionales y no funcionales.
