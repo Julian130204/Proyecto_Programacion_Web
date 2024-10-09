@@ -28,6 +28,9 @@ Funciones de interfaz, mas tactil y facil
 Como van a entrar los estudiantes (El login).
 
 1ra entrega: 23 - 26 septiembre - Cumplido
+
 2da entrega: 15 - 16 octubre - Pendiente (prototipo funcional con requerimientos, puede incluir ya la programación)
+
 3ra entrega: 13 - 15 noviembre - Pendiente
+
 Final: a más tardar el 29 de noviembre
