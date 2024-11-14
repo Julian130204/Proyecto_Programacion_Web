@@ -1,0 +1,14 @@
+NOTAS
+
+
+--Usuarios--
+admin	contraseña: 12345
+demo	contraseña: demo
+
+
+--Conexión a BD--
+Ir a al archivo conexion.php en carpeta de bd
+	- Cambiar el usuario y contraseña (Dependiendo de la que tengas en phpMyAdmin)
+
+Además de el archivo coenxion.php en la carpeta dashboard/bd
+	- Cambiar el usuario y contraseña (Dependiendo de la que tengas en phpMyAdmin)
